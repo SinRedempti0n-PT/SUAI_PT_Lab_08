@@ -3,7 +3,7 @@
 >Implement the **ParallelMatrixProduct** class for multithreaded **UsualMatrix** matrix multiplication. In the constructor, the class gets the number of threads that will be used for multiplication (the number of threads can be less than the number of rows in the first matrix).  
 In the **main** function, compare the time of multiplying large random matrices in the normal and multi-threaded way. You can get the current time using the methods of the **System**.
 
-#### Additional mission
+#### Additional task
 > Implement a multi-threaded version of the program that calculates the number of ways to put N queens on the board N on N so that they do not beat each other.  
 **int calcQueenNum (int N, int threadNum);**  
 Choose N so that **calcQueenNum (N, some number> 1)** outperforms **calcQueenNum (N, 1)**.
