@@ -1,6 +1,7 @@
 package com.sinredemption;
 
 import com.sinredemption.matrix.*; //Import all Classes from ./matrix
+import com.sinredemption.queen.Queen;
 
 public class Main {
 
@@ -21,5 +22,19 @@ public class Main {
         res = newObj.product(a, b);                                     //Product Matrix and place result in res
         temp = System.currentTimeMillis() - temp;                       //Calculate processing time
         System.out.println("Time : " + temp);                           //Print elapsed time
+
+        int n = Integer.parseInt(args[0]);
+        int maxThreads = Integer.parseInt(args[1]);
+        Queen.setMaxGSK(maxThreads);
+        Queen queens = new Queen(n, 1, new int[n+1]);
+        long startedTime = System.currentTimeMillis();
+        queens.start();
+        try {
+            queens.join();
+        }catch (Exception e){
+            System.err.println(e.getCause());
+        }
+        System.out.println("Solutions: " + Queen.getSolution());
+        System.out.println("Working time: " + (float)(System.currentTimeMillis() - startedTime) / 1000 + " s.");
     }
 }
