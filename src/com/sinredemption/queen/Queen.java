@@ -11,15 +11,12 @@ public class Queen extends Thread {
     private static int maxThreads;
     private Stack<Queen> stack;
 
-    public Queen(int n,int column, int places[]) {
+    public Queen(int n, int threads, int column, int places[]) {
         this.n = n;
+        this.maxThreads = threads;
         this.column = column;
         this.places = places;
         stack = new Stack<Queen>();
-    }
-
-    public static void setMaxGSK(int sk) {
-        maxThreads = sk;
     }
 
     private boolean tryqueen(int row, int column) {
@@ -54,7 +51,7 @@ public class Queen extends Thread {
                         gSk = startedThreads;
                     }
                     if (gSk < maxThreads) {
-                        Queen kar = new Queen(n, column+1, places.clone());
+                        Queen kar = new Queen(n, maxThreads, column+1, places.clone());
                         kar.start();
                         stack.add(kar);
                     }
@@ -99,6 +96,8 @@ public class Queen extends Thread {
         startedThreads--;
     }
     public static int getSolution() {
-        return solutions;
+        int tmp = solutions;
+        solutions = 0;
+        return tmp;
     }
 }

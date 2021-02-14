@@ -24,13 +24,23 @@ public class Main {
         System.out.println("Time : " + temp);     */                      //Print elapsed time
 
         int n = Integer.parseInt(args[0]);
-        int maxThreads = Integer.parseInt(args[1]);
-        Queen.setMaxGSK(maxThreads);
-        Queen queens = new Queen(n, 1, new int[n+1]);
+        Queen queens = new Queen(n, 1, 1, new int[n+1]);
         long startedTime = System.currentTimeMillis();
         queens.start();
         try {
             queens.join();
+        }catch (Exception e){
+            System.err.println(e.getCause());
+        }
+        System.out.println("Solutions: " + Queen.getSolution());
+        System.out.println("Working time: " + (float)(System.currentTimeMillis() - startedTime) / 1000 + " s.");
+
+        int maxThreads = Integer.parseInt(args[1]);
+        Queen queensMulti = new Queen(n, maxThreads, 1, new int[n+1]);
+        startedTime = System.currentTimeMillis();
+        queensMulti.start();
+        try {
+            queensMulti.join();
         }catch (Exception e){
             System.err.println(e.getCause());
         }
