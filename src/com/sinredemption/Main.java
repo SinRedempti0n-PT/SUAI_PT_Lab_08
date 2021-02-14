@@ -6,7 +6,7 @@ import com.sinredemption.queen.Queen;
 public class Main {
 
     public static void main(String[] args) {
-        UsualMatrix a = new UsualMatrix(2000, 2000);    //Create first Matrix
+        /*UsualMatrix a = new UsualMatrix(2000, 2000);    //Create first Matrix
         System.out.println(a.toString());               //Print that Matrix
         UsualMatrix b = new UsualMatrix(2000, 2000);    //Create second matrix
         System.out.println(b.toString());               //Print that Matrix
@@ -21,7 +21,7 @@ public class Main {
         temp = System.currentTimeMillis();                              //Save current time
         res = newObj.product(a, b);                                     //Product Matrix and place result in res
         temp = System.currentTimeMillis() - temp;                       //Calculate processing time
-        System.out.println("Time : " + temp);                           //Print elapsed time
+        System.out.println("Time : " + temp);     */                      //Print elapsed time
 
         int n = Integer.parseInt(args[0]);
         int maxThreads = Integer.parseInt(args[1]);
